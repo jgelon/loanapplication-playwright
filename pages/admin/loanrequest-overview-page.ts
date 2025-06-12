@@ -1,6 +1,6 @@
 import { type Page } from '@playwright/test';
 
-export class LoanRequestOverviewPage {
+export class AdminLoanRequestOverviewPage {
   readonly page: Page;
 
   constructor(page: Page) {

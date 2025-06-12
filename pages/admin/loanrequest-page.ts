@@ -1,7 +1,7 @@
 import { type Page } from '@playwright/test';
 import { type CommentText } from './../../models/Comment'
 
-export class LoanRequestPage {
+export class AdminLoanRequestPage {
     readonly page: Page;
 
     constructor(page: Page) {

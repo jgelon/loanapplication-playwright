@@ -1,11 +1,13 @@
 import { test as base } from "@playwright/test"
-import { LoanRequestOverviewPage } from "./pages/admin/loanrequest-overview-page"
-import { LoginPage } from "./pages/admin/login-page"
-import { LoanRequestPage } from "./pages/admin/loanrequest-page"
+import { AdminLoanRequestOverviewPage } from "./pages/admin/loanrequest-overview-page"
+import { AdminLoginPage } from "./pages/admin/login-page"
+import { AdminLoanRequestPage } from "./pages/admin/loanrequest-page"
+import { LoanRequestPage } from "./pages/loanrequest-page"
 
 type MyFixtures = {
-    loginPage: LoginPage
-    loanRequestOverviewPage: LoanRequestOverviewPage
+    adminLoginPage: AdminLoginPage
+    adminLoanRequestOverviewPage: AdminLoanRequestOverviewPage
+    adminLoanRequestPage: AdminLoanRequestPage
     loanRequestPage: LoanRequestPage
 }
 
@@ -15,11 +17,14 @@ export const test = base.extend<MyFixtures>({
         await use(page)
         //
     },
-    loginPage: async ({page}, use) => {
-        await use(new LoginPage(page))
+    adminLoginPage: async ({page}, use) => {
+        await use(new AdminLoginPage(page))
     },
-    loanRequestOverviewPage: async ({page}, use) => {
-        await use(new LoanRequestOverviewPage(page))
+    adminLoanRequestOverviewPage: async ({page}, use) => {
+        await use(new AdminLoanRequestOverviewPage(page))
+    },
+    adminLoanRequestPage: async ({page}, use) => {
+        await use(new AdminLoanRequestPage(page))
     },
     loanRequestPage: async ({page}, use) => {
         await use(new LoanRequestPage(page))

@@ -1,4 +1,5 @@
 import { type Page, Locator } from '@playwright/test';
+import { step } from '../../base';
 
 export class AdminLoginPage {
     readonly page: Page;
@@ -17,6 +18,7 @@ export class AdminLoginPage {
         await this.login('reader', 'reader')
     }
 
+    @step("login with username and password")
     async login(username: string, password: string) {
         await this.page.getByRole('textbox', { name: 'Username' }).fill(username);
         await this.page.getByRole('textbox', { name: 'Password' }).fill(password);

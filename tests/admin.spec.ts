@@ -1,4 +1,4 @@
-import { expect, test } from "../fixtures";
+import { expect, test } from "../base";
 
 test.beforeEach(async ({adminLoginPage, request }) => {
   await adminLoginPage.goto()

@@ -1,5 +1,6 @@
 import { type Page } from '@playwright/test';
 import { type CommentText } from './../../models/Comment'
+import { step } from '../../base';
 
 export class AdminLoanRequestPage {
     readonly page: Page;
@@ -8,14 +9,17 @@ export class AdminLoanRequestPage {
         this.page = page
     }
 
+    @step("approve loan request")
     async approve() {
         await this.page.getByRole('button', { name: 'Approve' }).click()
     }
 
+    @step("decline loan request")
     async decline() {
         await this.page.getByRole('button', { name: 'Decline' }).click()
     }
 
+    @step("comment on loan request")
     async comment(comment: string) {
         await this.page.getByRole('textbox').highlight()
         await this.page.getByRole('textbox').fill('test comment')

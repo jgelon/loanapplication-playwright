@@ -1,8 +1,8 @@
-import { test } from "../fixtures";
+import { expect, test } from "../fixtures";
 import { createRandomPerson } from "../models/Person";
 
 
-test('Request a loan', async ({ loanRequestPage }) => {
+test('Request a loan', async ({ loanRequestPage, page }) => {
   const person = createRandomPerson()
   await loanRequestPage.goto()
   await loanRequestPage.selectLoan('Car-loan', 25000)

@@ -1,0 +1,30 @@
+// import { test, expect } from '@playwright/test';
+
+// test('test', async ({ page }) => {
+//   await page.goto('https://loanapplication.gmie.nl/');
+//   await page.getByRole('link', { name: 'Request New Loan (v2)' }).click();
+//   await page.getByText('Personal loan (minimum €1,500)').click();
+//   await page.locator('div').filter({ hasText: /^Amount$/ }).click();
+//   await page.getByRole('spinbutton', { name: 'Amount' }).fill('2000');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByText('I have knowledge of and').click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.locator('div').filter({ hasText: /^Gender$/ }).nth(2).click();
+//   await page.getByRole('option', { name: 'Male', exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Firstname' }).fill('Test');
+//   await page.getByRole('textbox', { name: 'Firstname' }).press('Tab');
+//   await page.getByRole('textbox', { name: 'Lastname' }).fill('Testname');
+//   await page.getByRole('textbox', { name: 'Lastname' }).press('Tab');
+//   await page.getByRole('textbox', { name: 'Date of birth' }).fill('01-01-1980');
+//   await page.getByRole('textbox', { name: 'Address' }).fill('Teststraat 5');
+//   await page.getByRole('textbox', { name: 'Zipcode' }).fill('1234 AB');
+//   await page.getByRole('textbox', { name: 'City' }).fill('Teststad');
+//   await page.getByRole('combobox', { name: 'Maritial status' }).locator('path').click();
+//   await page.getByRole('option', { name: 'Single' }).click();
+//   await page.getByRole('spinbutton', { name: 'Net year income' }).fill('50000');
+//   await page.getByRole('combobox', { name: 'Income type' }).locator('span').click();
+//   await page.getByText('Self Employed').click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('button', { name: 'Submit' }).click();
+//   await expect(page.locator('app-request-a-loan-matdesign')).toContainText(/Your request has been submitted and is filled under #\\d+/);
+// });

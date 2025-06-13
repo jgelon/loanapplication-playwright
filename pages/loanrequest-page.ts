@@ -31,7 +31,7 @@ export class LoanRequestPage {
         await this.page.locator('select[formcontrolname="gender"]').selectOption(person.gender.toString());
         await this.page.getByRole('textbox', { name: 'Firstname' }).fill(person.firstname);
         await this.page.getByRole('textbox', { name: 'Lastname' }).fill(person.lastname);
-        await this.page.getByPlaceholder('Date of birth').pressSequentially(formatDate(person.dob).replaceAll("/",""));
+        await this.page.getByPlaceholder('Date of birth').pressSequentially(formatDate(person.dob).replaceAll("/", ""));
         await this.page.getByRole('textbox', { name: 'Address' }).fill(person.address);
         await this.page.getByRole('textbox', { name: 'Zipcode' }).fill(person.zipcode);
         await this.page.getByRole('textbox', { name: 'City' }).fill(person.city);
@@ -44,12 +44,18 @@ export class LoanRequestPage {
         await this.page.getByRole('button', { name: 'Request the loan' }).click();
     }
 
-    async getLoanId() : Promise<number> {
+    async getLoanId(): Promise<number> {
         const confirmationTextElement = this.page.getByText('Your request has been');
 
         await expect(confirmationTextElement).toBeVisible();
-        await expect(confirmationTextElement).toContainText( /Your request has been submitted and is filled under #\d+/);
-        
+        await expect(confirmationTextElement).toContainText(/Your request has been submitted and is filled under #\d+/);
+
+        await expect(this.page).toHaveScreenshot("request-created.png",
+            {
+                mask: [this.page.locator("#requestId")]
+            }
+        );
+
         const number = await this.page.locator("#requestId").textContent();
         return Number(number)
     }

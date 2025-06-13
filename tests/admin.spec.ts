@@ -1,11 +1,11 @@
 import { expect, test } from "../fixtures";
 
 test.beforeEach(async ({adminLoginPage, request }) => {
-  adminLoginPage.goto()
-  adminLoginPage.adminLogin()
+  await adminLoginPage.goto()
+  await adminLoginPage.adminLogin()
 
   //Create request via api
-  var generate = await request.get('http://loanapplication-be.gmie.nl/adminLoanRequests/generate')
+  var generate = await request.get('http://loanapplication-be.gmie.nl/loanrequests/generate')
   expect(generate.ok()).toBeTruthy()
 })
 

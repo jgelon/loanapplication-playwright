@@ -9,7 +9,7 @@ export class AdminLoanRequestOverviewPage {
   }
 
   @step("Open specific request")
-  async openRequest(requestId) {
+  async openRequest(requestId: string) {
     await this.page.getByRole('link', { name: requestId }).click();
   }
 

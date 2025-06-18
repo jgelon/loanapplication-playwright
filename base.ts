@@ -57,7 +57,7 @@ export function step(stepName?: string) {
     target: Function,
     context: ClassMethodDecoratorContext
   ) {
-    return function replacementMethod(...args: any) {
+    return function replacementMethod(this: any, ...args: any) {
       const name = `${stepName || (context.name as string)} (${this.name})`
       return test.step(name, async () => {
         return await target.call(this, ...args)

@@ -4,7 +4,7 @@ import { formatDate, step } from '../base';
 
 export class LoanRequestPage {
     readonly page: Page;
-    person: Person;
+    person: Person | undefined;
 
     constructor(page: Page) {
         this.page = page
@@ -35,7 +35,7 @@ export class LoanRequestPage {
         await this.page.locator('select[formcontrolname="gender"]').selectOption(person.gender.toString());
         await this.page.getByRole('textbox', { name: 'Firstname' }).fill(person.firstname);
         await this.page.getByRole('textbox', { name: 'Lastname' }).fill(person.lastname);
-        await this.page.getByPlaceholder('Date of birth').pressSequentially(formatDate(person.dob).replaceAll("/", ""));
+        await this.page.getByPlaceholder('Date of birth').pressSequentially(formatDate(person.dob).replace(/\//g, ""));
         await this.page.getByRole('textbox', { name: 'Address' }).fill(person.address);
         await this.page.getByRole('textbox', { name: 'Zipcode' }).fill(person.zipcode);
         await this.page.getByRole('textbox', { name: 'City' }).fill(person.city);
